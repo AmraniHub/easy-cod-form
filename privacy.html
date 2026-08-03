@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Easy COD Form</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+         max-width: 760px; margin: 0 auto; padding: 40px 20px 80px; line-height: 1.65; color: #1a1a1a; }
+  @media (prefers-color-scheme: dark) { body { background: #111; color: #e6e6e6; } a { color: #7bd4a8; } }
+  h1 { font-size: 28px; margin-bottom: 4px; }
+  h2 { font-size: 20px; margin-top: 36px; border-bottom: 1px solid #8884; padding-bottom: 6px; }
+  .meta { color: #777; margin-bottom: 28px; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+  th, td { border: 1px solid #8884; padding: 8px 10px; text-align: left; vertical-align: top; font-size: 14px; }
+  code { background: #8882; padding: 1px 5px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<h1>Privacy Policy</h1>
+<p class="meta">Easy COD Form, by Amrania Labs · Last updated: 3 August 2026 · Contact: <a href="mailto:amrani4online@gmail.com">amrani4online@gmail.com</a></p>
+
+<p>Easy COD Form ("the App") is a Shopify application that lets merchants collect
+cash-on-delivery orders through an order form on their storefront. This policy
+explains what data the App handles, why, and what rights you have. It covers
+both <strong>merchants</strong> who install the App and <strong>shoppers</strong>
+who use the order form on a merchant's store.</p>
+
+<h2>Our role</h2>
+<p>For shopper data collected through the order form, the merchant operating the
+store is the data controller and Amrania Labs acts as a data processor on the
+merchant's behalf. Shopify Inc. independently processes the same order data as
+the merchant's commerce platform.</p>
+
+<h2>Data we collect</h2>
+
+<h3>From shoppers (through the order form)</h3>
+<table>
+  <tr><th>Data</th><th>Purpose</th><th>Stored by the App?</th></tr>
+  <tr><td>Name, phone number, delivery address, country, and (optionally) email</td>
+      <td>Creating the cash-on-delivery order and prefilling the store's Shopify checkout</td>
+      <td>Passed to Shopify. Stored by the App only when a shopper starts the form and does not finish ("abandoned form"), so the merchant can follow up</td></tr>
+  <tr><td>Order details (product, variant, quantity, totals, discount code, order number)</td>
+      <td>Order records, the merchant's dashboard, and plan metering</td>
+      <td>Yes — order references without shopper identity</td></tr>
+  <tr><td>IP address</td>
+      <td>Rate limiting and abuse prevention only</td>
+      <td>Never stored raw — only a keyed HMAC-SHA-256 digest</td></tr>
+  <tr><td>Campaign parameters (utm_*) and, where the merchant has enabled ad tracking, the browser identifiers _fbp, _fbc, ttclid</td>
+      <td>Attributing the sale to the merchant's own advertising</td>
+      <td>Attached to the order; identifiers are forwarded, not retained</td></tr>
+</table>
+
+<h3>From merchants</h3>
+<table>
+  <tr><th>Data</th><th>Purpose</th></tr>
+  <tr><td>Store domain and app settings (countries served, shipping rates, quantity offers, order tags)</td><td>Operating the App</td></tr>
+  <tr><td>Optional ad-platform credentials (Meta / TikTok access tokens, GA4 API secret)</td><td>Sending the merchant's own conversion events; stored encrypted at rest</td></tr>
+  <tr><td>Subscription plan and order counts per billing period</td><td>Billing and plan limits</td></tr>
+</table>
+
+<h2>What we do not do</h2>
+<ul>
+  <li>We do not sell or rent personal data, to anyone, ever.</li>
+  <li>We do not use shopper data for our own marketing or profiling.</li>
+  <li>We do not store payment details — the App has none: orders are cash on delivery, completed through Shopify's own checkout.</li>
+  <li>The order form sets no advertising cookies of its own.</li>
+</ul>
+
+<h2>Sharing</h2>
+<p>Data is shared only with:</p>
+<ul>
+  <li><strong>Shopify</strong> — the order, customer and checkout data that makes the sale exist on the merchant's store.</li>
+  <li><strong>The merchant's own advertising platforms</strong> (Meta, TikTok, Google Analytics 4) — only if the merchant has connected them, and only hashed identifiers (SHA-256 of email/phone/name/address fields) plus order value, as those platforms' conversion APIs require.</li>
+  <li><strong>Our hosting provider</strong> — which processes data on our instructions to run the App.</li>
+</ul>
+
+<h2>Retention</h2>
+<ul>
+  <li><strong>Abandoned form records</strong> are deleted automatically after the merchant's configured retention window (30 days by default), and immediately when the shopper's order completes or the merchant deletes them.</li>
+  <li><strong>Order references</strong> are kept while the App is installed, for the merchant's dashboard and billing.</li>
+  <li><strong>Uninstall:</strong> when a merchant uninstalls the App, all of that store's data — settings, credentials, order references, abandoned forms, hashed identifiers — is erased in response to Shopify's <code>shop/redact</code> notice (sent 48&nbsp;hours after uninstall).</li>
+</ul>
+
+<h2>Your rights (GDPR and similar laws)</h2>
+<p>Shoppers can ask the merchant they bought from to access, correct, or delete
+their data. The App implements Shopify's mandatory privacy webhooks in full:</p>
+<ul>
+  <li><code>customers/data_request</code> — we compile any data held about the shopper and return it to the merchant.</li>
+  <li><code>customers/redact</code> — we delete the shopper's abandoned-form records and unlink hashed identifiers from their orders.</li>
+  <li><code>shop/redact</code> — we erase everything for the store.</li>
+</ul>
+<p>You may also contact us directly at
+<a href="mailto:amrani4online@gmail.com">amrani4online@gmail.com</a> and we will
+act on verified requests within 30 days.</p>
+
+<h2>Security</h2>
+<ul>
+  <li>All traffic uses TLS; storefront requests are verified with Shopify's HMAC signatures.</li>
+  <li>Ad-platform credentials are encrypted at rest.</li>
+  <li>IP addresses are stored only as keyed one-way digests.</li>
+  <li>Access to production systems is limited to the developer.</li>
+</ul>
+
+<h2>Children</h2>
+<p>The App is not directed at children and we do not knowingly collect data from
+anyone under 16.</p>
+
+<h2>Changes</h2>
+<p>If this policy changes materially, the "Last updated" date above changes and
+merchants are notified through the App.</p>
+
+<h2>Contact</h2>
+<p>Amrania Labs · <a href="mailto:amrani4online@gmail.com">amrani4online@gmail.com</a></p>
+
+</body>
+</html>
